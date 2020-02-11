@@ -1,7 +1,7 @@
 import React from 'react';
 
-const PostPage = () => {
+const PostListPage = () => {
     return <div>메인 포스트 페이지</div>
 }
 
-export default PostPage;
+export default PostListPage;
