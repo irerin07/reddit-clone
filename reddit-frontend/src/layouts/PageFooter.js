@@ -1,11 +1,11 @@
 import React from 'react';
 
-const PostListPage = () => {
+const PageFooter = () => {
     return (
         <div>
-            PostView
+            footer      
         </div>
     );
 };
 
-export default PostListPage;
+export default PageFooter;
