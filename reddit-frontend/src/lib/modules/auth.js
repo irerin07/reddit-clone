@@ -9,6 +9,7 @@ const initialState = {};
 const auth = handleActions(
     {
         [LOGIN_ACTION] : (state, action) => state,
+        [LOGOUT_ACTION]
     },
     initialState,
 )
