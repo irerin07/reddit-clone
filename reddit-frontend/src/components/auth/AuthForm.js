@@ -4,6 +4,11 @@ import palette from '../../lib/styles/palette'
 import { Link } from 'react-router-dom';
 import Button from '../base/Button'
 
+// navLink style
+const StyledLink = styled(Link)`
+    text-decoration:none !important;
+`
+
 // 회원가입 및 로그인 폼
 const AuthFormBlock = styled.div`
     h3 {
@@ -14,11 +19,16 @@ const AuthFormBlock = styled.div`
 `;
 
 const StyledInput = styled.input`
+    border-top-left-radius: 2px;
+    border-bottom-left-radius: 2px;
     font-size: 1rem;
-    border:none;
-    border-bottom: 1px solid ${palette.gray[5]};
-    padding-bottom: 0.5rem;
-    outline:none;
+    flex: 1 1 0%;
+    padding: 1rem;
+    border-width: 1px 1px 1px 1px;
+    border-style: solid;
+    border-color: rgb(222, 226, 230);
+    border-image: initial;
+    border-radius: 4px;
     width : 100%;
     &:focus {
         color: $oc-teal-7;
@@ -49,18 +59,26 @@ const textMap = {
     register : '회원가입',
 }
 
-const AuthForm = ({ type }) => {
+const AuthForm = ({ type, form, onChange, onSubmit }) => {
     const text = textMap[type];
     return (
         <AuthFormBlock>
             <h3>{text}</h3>
-            <form>
-                <StyledInput autoComplete="username" name="username" placeholder="아이디" />
+            <form onSubmit={onSubmit}>
+                <StyledInput 
+                    autoComplete="username" 
+                    name="username" 
+                    placeholder="아이디" 
+                    onChange={onChange}
+                    value={form.username}
+                />
                 <StyledInput 
                     autoComplete="new-password"
                     name="password"
                     placeholder="비밀번호"
                     type="password"
+                    onChange={onChange}
+                    value={form.password}
                 />
                 {type === 'register' && (
                     <StyledInput 
@@ -68,6 +86,8 @@ const AuthForm = ({ type }) => {
                         name="passwordConfirm"
                         placeholder="비밀번호 확인"
                         type="password"
+                        onChange={onChange}
+                        value={form.passwordConfirm}
                     />
                 )}
                 <ButtonWithMarginTop cyan fullWidth>
@@ -76,9 +96,9 @@ const AuthForm = ({ type }) => {
             </form>
             <Footer>
                 {type === 'login' ? (
-                    <Link to="/register">로그인</Link>
+                    <StyledLink to="/register">회원가입</StyledLink>
                 ) : (
-                    <Link to="/register">회원가입</Link>
+                    <StyledLink to="/login">로그인</StyledLink>
                 )}
             </Footer>
         </AuthFormBlock>
