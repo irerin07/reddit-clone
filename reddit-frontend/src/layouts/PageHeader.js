@@ -12,7 +12,8 @@ const StyledHeader = styled.header`
     align-items: center;
     margin: 0px auto;
     height: 4rem;
-    box-shadow : 5px 5px 5px rgba(0, 0, 0, 0.1);
+    background:white;
+    //box-shadow : 5px 5px 5px rgba(0, 0, 0, 0.1);
 `;
 
 const PageHeader = (props) => {
