@@ -1,7 +1,3 @@
-
-# Created by https://www.gitignore.io/api/java,react,intellij,jetbrains
-# Edit at https://www.gitignore.io/?templates=java,react,intellij,jetbrains
-
 ### Intellij ###
 # Covers JetBrains IDEs: IntelliJ, RubyMine, PhpStorm, AppCode, PyCharm, CLion, Android Studio and WebStorm
 # Reference: https://intellij-support.jetbrains.com/hc/en-us/articles/206544839
@@ -171,19 +167,3 @@ hs_err_pid*
 
 # Markdown Navigator plugin
 
-### react ###
-.DS_*
-logs
-**/*.backup.*
-**/*.back.*
-
-node_modules
-bower_components
-
-*.sublime*
-
-psd
-thumb
-sketch
-
-# End of https://www.gitignore.io/api/java,react,intellij,jetbrains
