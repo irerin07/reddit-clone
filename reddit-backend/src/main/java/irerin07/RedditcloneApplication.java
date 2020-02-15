@@ -1,4 +1,4 @@
-package irerin07.redditclone;
+package irerin07;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
