@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components';
+import LoadingBar from 'react-redux-loading-bar';
 
 const StyledHeader = styled.header`
     width: 100%;
@@ -17,7 +18,11 @@ const StyledHeader = styled.header`
 `;
 
 const PageHeader = (props) => {
-    return <StyledHeader {...props} />
+    return ( 
+        <StyledHeader {...props} >
+            <LoadingBar />
+        </StyledHeader>
+    );
 }
 
 export default PageHeader;
