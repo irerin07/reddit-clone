@@ -1,4 +1,4 @@
-package irerin07.redditclone.domain;
+package irerin07.domain;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -14,4 +14,5 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+    private String email;
 }
