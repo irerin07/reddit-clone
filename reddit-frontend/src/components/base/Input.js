@@ -1,18 +1,26 @@
 import React from 'react';
 import styled from 'styled-components';
+import palette from '../../lib/styles/palette'
 
 const StyledInput = styled.input`
-    appearance: none;
-    background-color: #f6f7f8;
+    border-top-left-radius: 2px;
+    border-bottom-left-radius: 2px;
+    font-size: 1rem;
+    flex: 1 1 0%;
+    padding: 1rem;
+    border-width: 1px 1px 1px 1px;
+    border-style: solid;
+    border-color: rgb(222, 226, 230);
+    border-image: initial;
     border-radius: 4px;
-    border: 1px solid #f6f7f8;
-    box-shadow: none;
-    color: #1c1c1c;
-    display: block;
-    height: 36px;
-    outline: none;
-    padding: 0 16px 0 40px;
     width: 100%;
+    &:focus {
+        color: $oc-teal-7;
+        border-bottom: 1px solid ${palette.gray[7]};
+    }
+    & + & {
+        margin-top: 1rem;
+    }
 `;
 
 const Input = (props) => {
