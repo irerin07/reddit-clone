@@ -4,7 +4,7 @@ import { takeLatest } from 'redux-saga/effects'
 import createRequestSaga, {
     createRequestActionTypes,
 } from '../middleware/createRequestSaga'
-import * as authAPI from '../lib/api/auth'
+import * as authAPI from '../api/auth'
 
 const CHANGE_FIELD = 'auth/CHANGE_FIELD';
 const INITIALIZE_FORM = 'auth/INITIALIZE_FORM';
