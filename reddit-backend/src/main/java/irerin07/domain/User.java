@@ -15,4 +15,7 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private String email;
+    private String passwd;
+    private Date regDate;
+    private int karma;
 }
