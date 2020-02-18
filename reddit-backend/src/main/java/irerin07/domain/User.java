@@ -10,12 +10,26 @@ import java.util.Date;
 @Table(name = "users")
 @Getter
 @Setter
-public class User {
+public class User extends BaseTimeEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+    @Column(nullable = false)
+    private String nickname;
+    @Column(nullable = false)
     private String email;
+    @Column(nullable = false)
     private String passwd;
-    private Date regDate;
+    @Column
+    private Date regdate;
+    @Column
     private int karma;
+    @Column
+    private String profilepic;
+
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = true)
+    private Role role;
+
+
 }
