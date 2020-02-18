@@ -5,6 +5,7 @@ import irerin07.repository.UserRepository;
 import irerin07.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @RequiredArgsConstructor
 @Service
@@ -12,11 +13,13 @@ public class UserServiceImpl implements UserService {
 
     private final UserRepository userRepository;
 
+    @Transactional
     @Override
-    public User addUser(User user) {
-        return userRepository.save(user);
+    public Long addUser(User user) {
+        return userRepository.save(user).getId();
     }
 
+    @Transactional
     @Override
     public User findUserByEmail(String email) {
         return userRepository.findByEmail(email);
