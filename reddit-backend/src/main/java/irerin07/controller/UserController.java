@@ -16,7 +16,9 @@ public class UserController {
 
     @PostMapping("/join")
     public Long join(){
-        User user = new User();
-        return userService.addUser(user);
+//        User user = new User();
+//        return userService.addUser(user);
+        return null;
     }
+
 }
