@@ -1,6 +1,8 @@
 package irerin07.domain;
 
+import lombok.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
@@ -10,6 +12,7 @@ import java.util.Date;
 @Table(name = "users")
 @Getter
 @Setter
+@NoArgsConstructor
 public class User extends BaseTimeEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -26,10 +29,22 @@ public class User extends BaseTimeEntity {
     private int karma;
     @Column
     private String profilepic;
-
-    @Enumerated(EnumType.STRING)
     @Column(nullable = true)
     private Role role;
+
+//    @Enumerated(EnumType.STRING)
+//    @Column(nullable = true)
+//    private Role role;
+
+    @Builder
+    public User(Long id, String nickname, String email, String passwd, int karma, String profilepic){
+        this.id = id;
+        this.nickname = nickname;
+        this.email = email;
+        this.passwd = passwd;
+        this.karma = karma;
+        this.profilepic = profilepic;
+    }
 
 
 }
