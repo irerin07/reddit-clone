@@ -2,6 +2,7 @@ package irerin07.repository;
 
 import irerin07.domain.User;
 import org.junit.After;
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,14 +20,9 @@ public class UserRepositoryTest {
     @Autowired
     UserRepository userRepository;
 
-    @After
-    public void clean(){
-        userRepository.deleteAll();
-    }
-
-    @Test
-    public void 유저_저장(){
-        Long id = 1l;
+    @Before
+    public void cleanAll() {
+        Long id = 3l;
         String nickname = "test";
         String email = "test@test.com";
         String passwd = "test";
@@ -34,17 +30,26 @@ public class UserRepositoryTest {
         String profilepic = "default";
 
         userRepository.save(User.builder().id(id).nickname(nickname).email(email).passwd(passwd).karma(karma).profilepic(profilepic).build());
+    }
+    
+
+    @Test
+    public void 유저_저장(){
 
         List<User> userList = userRepository.findAll();
 
-        User user = userList.get(0);
-
-        assertThat(user.getId()).isEqualTo(id);
-        assertThat(user.getNickname()).isEqualTo(nickname);
-        assertThat(user.getEmail()).isEqualTo(email);
-        assertThat(user.getPasswd()).isEqualTo(passwd);
-        assertThat(user.getKarma()).isEqualTo(karma);
-        assertThat(user.getProfilepic()).isEqualTo(profilepic);
+        System.out.println(userList.size());
+        for(User u : userList) {
+            System.out.println(u.getId());
+            System.out.println(u.getEmail());
+        }
 
     }
+
+    @Test
+    public void 이메일로_유저_찾기(){
+        User user = userRepository.findByEmail("test@test.com");
+        assertThat(user.getNickname()).isEqualTo("test");
+    }
+
 }
