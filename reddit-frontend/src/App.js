@@ -1,5 +1,5 @@
 import React from 'react';
-import Header from './layouts/PageHeader'
+import Header from './containers/auth/HeaderContainer'
 import Routes from './routes'
 
 const App = () => {

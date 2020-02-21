@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components';
 import Input from '../components/base/Input'
 import palette from '../lib/styles/palette'
-import { Row, Icon, Col } from 'antd'
+import { Icon, Col } from 'antd'
 import Button from '../components/base/Button'
 
 const StyledHeader = styled.header`
@@ -41,7 +41,7 @@ const SearchLabel = styled.label`
     cursor:pointer;
 `;
 
-const HeaderSearchBar = styled(Input)`
+const HeaderSearchInput = styled(Input)`
     padding: 0.5rem;
     width: 100%;
     background: ${palette.gray[2]};
@@ -52,9 +52,9 @@ const ButtonWrapper = styled(Col)`
     text-align:right;
 `
 
-const PageHeader = (props) => {
+const PageHeader = ({ onKeyup, setLoginModal, setRegisterModal }) => {
     return (
-      <StyledHeader {...props}>
+      <StyledHeader>
         <Col span={6}>
           <StyledLogo />
         </Col>
@@ -62,11 +62,13 @@ const PageHeader = (props) => {
           <SearchLabel>
             <Icon type="search" />
           </SearchLabel>
-          <HeaderSearchBar />
+          <HeaderSearchInput
+            name="headerSearch" type="text" onKeyup={onKeyup}
+          />
         </Col>
         <ButtonWrapper span={6}>
-          <Button>로그인</Button>
-          <Button>회원가입</Button>
+          <Button cyan margin={1} onClick={setLoginModal}>로그인</Button>
+          <Button cyan margin={1} onClick={setRegisterModal}>회원가입</Button>
         </ButtonWrapper>
       </StyledHeader>
     );

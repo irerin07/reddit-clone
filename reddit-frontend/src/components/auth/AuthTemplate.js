@@ -4,7 +4,6 @@ import styled from 'styled-components';
 //import { Link } from 'react-router-dom';
 
 const AuthTemplateBlock = styled.div`
-    //position: absolute;
     left : 0;
     top : 0;
     bottom: 0;
