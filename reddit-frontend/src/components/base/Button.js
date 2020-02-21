@@ -35,6 +35,13 @@ const StyledButton = styled.button`
             }
         `
     }
+
+    ${props => 
+        props.margin &&
+        css`
+            margin : ${props.margin * 10}px;
+        `
+    }
 `;
 
 const Button = (props) => {
