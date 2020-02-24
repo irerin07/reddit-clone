@@ -64,21 +64,13 @@ const StyledModalHeader = styled.div`
   }
 `;
 
-const Modal = ({ open, close }) => {
+const Modal = ({ open, close, children }) => {
     return (
       <>  
       {open === true ? (
       <StyledModalWrapper onClick={close}>
         <StyledModalHeader>
-          <p className="title">Modal Title</p>
-          <div className="content">
-            <p>
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vel
-              tempora nulla, non molestiae dicta ducimus. Et unde laborum
-              eveniet ex quod doloribus quae, aliquam beatae atque, vero
-              assumenda rem quo?
-            </p>
-          </div>
+          { children }
           <div className="button-wrap">
             <Button onClick={close}>Confirm </Button>
           </div>
