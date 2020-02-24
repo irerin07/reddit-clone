@@ -52,7 +52,7 @@ const ButtonWrapper = styled(Col)`
     text-align:right;
 `
 
-const PageHeader = ({ onKeyUp, showLoginModal, showRegisterModal }) => {
+const PageHeader = ({ onKeyUp, showLoginModal }) => {
     return (
       <StyledHeader>
         <Col span={6}>

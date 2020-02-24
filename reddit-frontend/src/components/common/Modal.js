@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import styled, { css } from 'styled-components';
+import Button from '../base/Button'
 
 const StyledModalWrapper = styled.div`
   position: fixed;
@@ -63,26 +64,30 @@ const StyledModalHeader = styled.div`
   }
 `;
 
-const [ modalStatus, setModalStatus ] = useState(false)
-
-const Modal = () => {
+const Modal = ({ open, close }) => {
     return (
-      <StyledModalWrapper>
+      <>  
+      {open === true ? (
+      <StyledModalWrapper onClick={close}>
         <StyledModalHeader>
-            <p className="title">Modal Title</p>
-            <div className="content">
-                <p>
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vel
-                tempora nulla, non molestiae dicta ducimus. Et unde laborum
-                eveniet ex quod doloribus quae, aliquam beatae atque, vero
-                assumenda rem quo?
-                </p>
-            </div>
-            <div className="button-wrap">
-                <button> Confirm </button>
-            </div>
+          <p className="title">Modal Title</p>
+          <div className="content">
+            <p>
+              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vel
+              tempora nulla, non molestiae dicta ducimus. Et unde laborum
+              eveniet ex quod doloribus quae, aliquam beatae atque, vero
+              assumenda rem quo?
+            </p>
+          </div>
+          <div className="button-wrap">
+            <Button onClick={close}>Confirm </Button>
+          </div>
         </StyledModalHeader>
       </StyledModalWrapper>
+      ) : (
+        null  
+      )}
+    </>
     );
 }
 
