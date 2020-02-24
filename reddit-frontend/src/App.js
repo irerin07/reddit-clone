@@ -1,11 +1,11 @@
 import React from 'react';
-import Header from './containers/auth/HeaderContainer'
+import HeaderContainer from './containers/auth/HeaderContainer'
 import Routes from './routes'
 
 const App = () => {
   return (
     <>
-      <Header />
+      <HeaderContainer />
       <Routes />
     </>
   );

@@ -2,23 +2,31 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux'
 import { changeField, initializeForm } from '../../lib/modules/auth'
 import PageHeader from '../../layouts/PageHeader'
-import { Modal } from 'antd'
 
 const HeaderContainer = () => {
     const dispatch = useDispatch();
     const [ LoginModalVisible, setLoginModalVisible ] = useState(false)
     const [ RegisterModalVisible, setRegisterModalVisible ] = useState(false)
 
-    const setModalLogin = (flag) => {
-        setLoginModalVisible(flag)
+    const showLoginModal = (e) => {
+        //console.log(this.LoginModalVisible)
+        setLoginModalVisible(true);
+        console.log(LoginModalVisible);
     }
-
-    const setModalRegister = (flag) => {
-        setRegisterModalVisible(flag)
+    
+    const showRegisterModal = (e) => {
+        //console.log(RegisterModalVisible)
+        setRegisterModalVisible(true)
+        console.log(RegisterModalVisible);
+        //console.log(e);
     }
 
     const onSubmit = e => {
         e.preventDefault();
+    }
+
+    const onKeyupSearch = e => {
+        console.log(e);
     }
 
     useEffect(() => {
@@ -26,10 +34,9 @@ const HeaderContainer = () => {
     }, [dispatch])
 
     return (
-        <PageHeader
-            setLoginModal={setModalLogin(true)}
-            setRegisterModal={setModalRegister(true)}
-        />
+      <>
+        <PageHeader onKeyUp={onKeyupSearch} showLoginModal={showLoginModal} />
+      </>
     );
 };
 
