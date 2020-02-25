@@ -5,4 +5,5 @@ import irerin07.domain.User;
 public interface UserService {
     public Long addUser(User user);
     public User findUserByEmail(String email);
+    public void updateUserNickName(String nickname, long id);
 }

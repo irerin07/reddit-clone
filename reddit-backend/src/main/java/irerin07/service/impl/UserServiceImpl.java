@@ -24,4 +24,11 @@ public class UserServiceImpl implements UserService {
     public User findUserByEmail(String email) {
         return userRepository.findByEmail(email);
     }
+
+    @Transactional
+    @Override
+    public void updateUserNickName(String nickname, long id) {
+        userRepository.updateUserNickName(nickname, id);
+
+    }
 }
