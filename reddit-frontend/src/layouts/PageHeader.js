@@ -42,7 +42,7 @@ const SearchLabel = styled.label`
 `;
 
 const HeaderSearchInput = styled(Input)`
-    padding: 0.5rem;
+    padding: 0.25rem;
     width: 100%;
     background: ${palette.gray[2]};
     padding-left:2.5rem;

@@ -8,6 +8,7 @@ import { createStore } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import { BrowserRouter } from 'react-router-dom';
 import rootReducer from './lib/modules'
+import 'antd/dist/antd.css';
 
 const store = createStore(
   rootReducer, composeWithDevTools()

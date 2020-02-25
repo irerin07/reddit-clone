@@ -4,7 +4,8 @@ import { changeField, initializeForm } from '../../lib/modules/auth'
 import PageHeader from '../../layouts/PageHeader'
 import Modal from '../../components/common/Modal';
 import AuthTemplate from '../../components/auth/AuthTemplate'
-import LoginForm from '../../containers/auth/LoginForm'
+import Login from '../../pages/LoginPage'
+import Register from '../../pages/RegisterPage'
 
 const HeaderContainer = () => {
     const dispatch = useDispatch();
@@ -48,15 +49,10 @@ const HeaderContainer = () => {
           showRegisterModal={registerModalOpen}
         />
         <Modal open={LoginModalOpen} close={loginModalClose}>
-            <AuthTemplate>
-              <LoginForm />
-            </AuthTemplate>
+          <Login />
         </Modal>
         <Modal open={RegisterModalOpen} close={registerModalClose}>
-          <p className="title">Modal Title</p>
-          <div className="content">
-            <p>회원가입 모달</p>
-          </div>
+          <Register />
         </Modal>
       </>
     );

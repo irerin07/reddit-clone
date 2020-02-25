@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import styled, { css } from 'styled-components';
 import Button from '../base/Button'
+import { AiOutlineCloseCircle } from 'react-icons/ai'
 
 const StyledModalWrapper = styled.div`
   position: fixed;
@@ -67,16 +68,18 @@ const StyledModalHeader = styled.div`
 const StyledCloseBtn = styled.span`
     position:absolute;
     font-size:1.2rem;
+    right:0px;
+    cursor:pointer;
 `;
 
 const Modal = ({ open, close, children }) => {
     return (
       <>  
       {open === true ? (
-      <StyledModalWrapper onClick={close}>
+      <StyledModalWrapper>
         <StyledModalHeader>
           <StyledCloseBtn>
-              &times
+              <AiOutlineCloseCircle onClick={close}/>
           </StyledCloseBtn>
           { children }
         </StyledModalHeader>
