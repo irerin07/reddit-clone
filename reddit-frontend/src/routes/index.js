@@ -11,8 +11,6 @@ const Routes = () => {
     return (
         <Router>
             <Route component={PostListPage} path="/" exact />
-            <Route component={LoginPage} path="/login" />
-            <Route component={RegisterPage} path="/register" />
             <Route component={UserProfile} path="/user/:username" />
             <Route component={UserSetting} path="/settings" />
             <Route component={WritePage} path="/write" />

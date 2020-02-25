@@ -22,10 +22,9 @@ const WhiteBox = styled.div`
         text-align:center;
         font-weight: 700;
         letter-spacing: 2px;
+        font-size: 16px;
     }
-    box-shadow : 0 0 8px rgba(0,0,0,0.025);
-    padding:2rem;
-    width:375px;
+    width:100%;
     background:white;
     border-radius: 2px;
 `

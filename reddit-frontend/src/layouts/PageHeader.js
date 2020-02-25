@@ -52,7 +52,7 @@ const ButtonWrapper = styled(Col)`
     text-align:right;
 `
 
-const PageHeader = ({ onKeyUp, showLoginModal }) => {
+const PageHeader = ({ onKeyUp, showLoginModal, showRegisterModal }) => {
     return (
       <StyledHeader>
         <Col span={6}>
@@ -63,11 +63,18 @@ const PageHeader = ({ onKeyUp, showLoginModal }) => {
             <Icon type="search" />
           </SearchLabel>
           <HeaderSearchInput
-            name="headerSearch" type="text" onKeyUp={onKeyUp}
+            name="headerSearch"
+            type="text"
+            onKeyUp={onKeyUp}
           />
         </Col>
         <ButtonWrapper span={6}>
-          <Button cyan margin={1} type="button" onClick={showLoginModal}>로그인</Button>
+          <Button cyan margin={1} type="button" onClick={showLoginModal}>
+            로그인
+          </Button>
+          <Button cyan margin={1} type="button" onClick={showRegisterModal}>
+            회원가입
+          </Button>
         </ButtonWrapper>
       </StyledHeader>
     );

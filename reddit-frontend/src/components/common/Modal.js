@@ -16,7 +16,7 @@ const StyledModalHeader = styled.div`
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 320px;
+  width: 400px;
   border-radius: 10px;
   background-color: white;
   box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
@@ -42,7 +42,7 @@ const StyledModalHeader = styled.div`
     }
   }
 
-  .button-wrap {
+  /*.button-wrap {
     margin: 0;
     margin-top: 8px;
     button {
@@ -61,7 +61,12 @@ const StyledModalHeader = styled.div`
         background-color: #7e49c8;
       }
     }
-  }
+  }*/
+`;
+
+const StyledCloseBtn = styled.span`
+    position:absolute;
+    font-size:1.2rem;
 `;
 
 const Modal = ({ open, close, children }) => {
@@ -70,10 +75,10 @@ const Modal = ({ open, close, children }) => {
       {open === true ? (
       <StyledModalWrapper onClick={close}>
         <StyledModalHeader>
+          <StyledCloseBtn>
+              &times
+          </StyledCloseBtn>
           { children }
-          <div className="button-wrap">
-            <Button onClick={close}>Confirm </Button>
-          </div>
         </StyledModalHeader>
       </StyledModalWrapper>
       ) : (
