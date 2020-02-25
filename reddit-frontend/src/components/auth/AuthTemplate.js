@@ -20,22 +20,19 @@ const WhiteBox = styled.div`
         display:block;
         padding-bottom:2rem;
         text-align:center;
-        font-weight: 700;
-        letter-spacing: 2px;
-        font-size: 16px;
+        font-size: 1.2rem;
     }
     width:100%;
     background:white;
     border-radius: 2px;
+
 `
 
 const AuthTemplate = ({ children }) => {
     return (
         <AuthTemplateBlock>
             <WhiteBox>
-                <div className="logo">
-                    
-                </div>
+                <h3 className="logo">Reddit</h3>
                 { children }
             </WhiteBox>
         </AuthTemplateBlock>

@@ -14,13 +14,15 @@ const StyledHeader = styled.header`
     justify-content: space-between;
     -webkit-box-align: center;
     align-items: center;
-    margin: 0px auto;
     height: 4rem;
     background:white;
     position:fixed;
     height: 64px;
     background: #001529;
-    //box-shadow : 5px 5px 5px rgba(0, 0, 0, 0.1);
+    top:0;
+    left:0;
+    right:0;
+    margin-top:0;
 `;
 
 const StyledLogo = styled.div`

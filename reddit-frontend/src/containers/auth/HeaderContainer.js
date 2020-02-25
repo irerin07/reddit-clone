@@ -11,7 +11,6 @@ const HeaderContainer = () => {
     const dispatch = useDispatch();
     const [ LoginModalOpen, setLoginModalOpen ] = useState(false);
     const [ RegisterModalOpen, setRegisterModalOpen ] = useState(false);
-    //const [ RegisterModalVisible, setRegisterModalVisible ] = useState(false)
 
     const loginModalOpen = () => {
         setLoginModalOpen(true)
