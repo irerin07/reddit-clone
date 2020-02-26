@@ -10,8 +10,8 @@ body {
 }
 
 #root {
-    min-height: calc(100vh - 64px);
-    background: #e9ecef;
+    height:100vh;
+    background: #f7f8fb;
     line-height: 1.5;
 }
 

@@ -1,7 +1,6 @@
 import React from 'react'
 import styled from 'styled-components';
 import Input from '../components/base/Input'
-import palette from '../lib/styles/palette'
 import { Icon, Col } from 'antd'
 import Button from '../components/base/Button'
 
@@ -15,10 +14,9 @@ const StyledHeader = styled.header`
     -webkit-box-align: center;
     align-items: center;
     height: 4rem;
-    background:white;
+    background:#f7f8fb;
     position:fixed;
     height: 64px;
-    background: #001529;
     top:0;
     left:0;
     right:0;
@@ -31,6 +29,9 @@ const StyledLogo = styled.div`
     background: rgba(255, 255, 255, 0.2);
     margin: 16px 24px 16px 0;
     float: left;
+    h3 {
+      font-size:1.25rem;
+    }
 `;
 
 const SearchLabel = styled.label`
@@ -46,7 +47,7 @@ const SearchLabel = styled.label`
 const HeaderSearchInput = styled(Input)`
     padding: 0.25rem;
     width: 100%;
-    background: ${palette.gray[2]};
+    background: #fff;
     padding-left:2.5rem;
 `;
 
@@ -58,7 +59,9 @@ const PageHeader = ({ onKeyUp, showLoginModal, showRegisterModal }) => {
     return (
       <StyledHeader>
         <Col span={6}>
-          <StyledLogo />
+          <StyledLogo>
+            <h3>Reddit</h3>
+          </StyledLogo>
         </Col>
         <Col span={12}>
           <SearchLabel>
@@ -71,10 +74,10 @@ const PageHeader = ({ onKeyUp, showLoginModal, showRegisterModal }) => {
           />
         </Col>
         <ButtonWrapper span={6}>
-          <Button cyan margin={1} type="button" onClick={showLoginModal}>
+          <Button purple margin={1} type="button" onClick={showLoginModal}>
             로그인
           </Button>
-          <Button cyan margin={1} type="button" onClick={showRegisterModal}>
+          <Button purple margin={1} type="button" onClick={showRegisterModal}>
             회원가입
           </Button>
         </ButtonWrapper>

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import HeaderContainer from './containers/auth/HeaderContainer'
+import HeaderContainer from './containers/layout/HeaderContainer'
 import { Route } from 'react-router-dom';
 import PostListPage from './pages/PostListPage';
 import UserProfile from './pages/UserProfile';
