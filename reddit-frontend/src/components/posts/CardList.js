@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
-import Card from '../posts/Cards'
+import Card from './CardItem'
 
-const List = () => {
+const CardList = () => {
     const MainContainer = styled.div`
         margin-top:64px;
         padding:20px;
@@ -31,4 +31,4 @@ const List = () => {
     );
 };
 
-export default List;
+export default CardList;

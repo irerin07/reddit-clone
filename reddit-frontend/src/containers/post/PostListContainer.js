@@ -1,5 +1,5 @@
 import React from 'react';
-import PostList from '../../components/posts/List'
+import PostList from '../../components/posts/CardList'
 
 const PostListContainer = () => {
     return (

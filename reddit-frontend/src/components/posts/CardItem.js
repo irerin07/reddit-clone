@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import palette from '../../lib/styles/palette'
 
-const Cards = () => {
+const CardItem = (props) => {
     const Wrapper = styled.div`
         display: flex;
         flex-direction: column;
@@ -26,4 +26,4 @@ const Cards = () => {
     );
 };
 
-export default Cards;
+export default CardItem;
