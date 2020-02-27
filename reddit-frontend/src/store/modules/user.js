@@ -1,5 +1,5 @@
 import { createAction, handleActions } from 'redux-actions';
-import { takeLast } from 'redux-saga/effects';
+import { takeLatest } from 'redux-saga/effects';
 import * as authAPI from '../api/auth';
 import createRequestSaga ,{ createRequestActionTypes } from '../middleware/createRequestSaga'
 
@@ -14,7 +14,7 @@ export const check = createAction(CHECK);
 
 const checkSaga = createRequestSaga(CHECK, authAPI.check);
 export function* userSaga() {
-    yield takeLast(CHECK, checkSaga);
+    yield takeLatest(CHECK, checkSaga);
 }
 
 const initialState = {
