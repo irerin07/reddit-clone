@@ -1,6 +1,6 @@
-import { createAction, handleActions } from './redux-actions'
-import produce from './immer';
-import { takeLatest } from './redux-saga/effects'
+import { createAction, handleActions } from 'redux-actions'
+import produce from 'immer';
+import { takeLatest } from 'redux-saga/effects'
 import createRequestSaga, {
     createRequestActionTypes,
 } from '../middleware/createRequestSaga'
