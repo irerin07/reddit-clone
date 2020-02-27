@@ -1,6 +1,6 @@
-import { createAction, handleActions } from 'redux-actions'
-import produce from 'immer';
-import { takeLatest } from 'redux-saga/effects'
+import { createAction, handleActions } from './redux-actions'
+import produce from './immer';
+import { takeLatest } from './redux-saga/effects'
 import createRequestSaga, {
     createRequestActionTypes,
 } from '../middleware/createRequestSaga'
@@ -25,7 +25,25 @@ export const changeField = createAction(
         value,
     })
 )
+
 export const initializeForm = createAction(INITIALIZE_FORM, form => form);
+
+export const register = createAction(REGISTER, ({ username, password }) => ({
+    username,
+    password,
+}));
+
+export const login = createAction(LOGIN, ({ username, password }) => ({
+    username,
+    password
+}));
+
+const registerSaga = createRequestSaga(REGISTER, authAPI.register)
+const loginSaga = createRequestSaga(LOGIN, authAPI.login)
+export function* authSaga() {
+    yield takeLatest(REGISTER, registerSaga)
+    yield takeLatest(LOGIN, loginSaga)
+}
 
 const initializeState = {
     register : {
@@ -37,6 +55,8 @@ const initializeState = {
         username : '',
         password : '',
     },
+    auth : null,
+    authError : null
 }
 
 const auth = handleActions(
@@ -48,6 +68,25 @@ const auth = handleActions(
         [INITIALIZE_FORM] : (state, { payload: form }) => ({
             ...state,
             [form] : initializeState[form],
+            authError : null,
+        }),
+        [REGISTER_SUCCESS] : (state, { payload: auth }) => ({
+            ...state,
+            authError: null,
+            auth,
+        }),
+        [REGISTER_FAILURE] : (state, { payload: error }) => ({
+            ...state,
+            authError: error,
+        }),
+        [LOGIN_SUCCESS] : (state, { payload: auth }) => ({
+            ...state,
+            authError : null,
+            auth,
+        }),
+        [LOGIN_FAILURE] : (state, { payload: error }) => ({
+            ...state,
+            authError : error
         })
     },
     initializeState,

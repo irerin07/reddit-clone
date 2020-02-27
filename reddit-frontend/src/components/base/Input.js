@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import palette from '../../lib/styles/palette'
+import palette from '../../styles/palette'
 
 const StyledInput = styled.input`
     border-top-left-radius: 2px;

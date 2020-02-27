@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux'
-import { changeField, initializeForm } from '../../lib/modules/auth'
+import { changeField, initializeForm } from '../../store/modules/auth'
 import PageHeader from '../../layouts/PageHeader'
 import Modal from '../../components/common/Modal';
 import AuthTemplate from '../../components/auth/AuthTemplate'
