@@ -4,14 +4,16 @@ import { changeField, initializeForm, login } from '../../store/modules/auth'
 import AuthForm from '../../components/auth/AuthForm'
 import { check } from '../../store/modules/user';
 import { withRouter } from 'react-router-dom'
+import { doneModal } from '../../store/modules/modal'
 
 const LoginForm = ({ history }) => {
     const dispatch = useDispatch();
-    const { form, auth, authError, user } = useSelector(({ auth, user }) => ({
+    const { form, auth, authError, user } = useSelector(({ auth, user, modal }) => ({
         form : auth.login,
         auth: auth.auth,
         authError : auth.authError,
-        user: user.user
+        user : user.user,
+        modal : modal.login, 
     }));
     //console.log(form);
     const [error, setError] = useState(null);
@@ -47,12 +49,18 @@ const LoginForm = ({ history }) => {
         if (auth) {
             console.log('로그인 성공')
             dispatch(check())
+            dispatch(doneModal('login'))
         }
     }, [auth, authError, dispatch]);
 
     useEffect(() => {
         if(user) {
             history.push('/');
+            try {
+                localStorage.setItem('user', JSON.stringify(user));
+            } catch(e) {
+                console.log('localStore is empty');
+            }
         }
     }, [history, user]);
 

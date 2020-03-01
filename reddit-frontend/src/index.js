@@ -10,6 +10,7 @@ import { BrowserRouter } from 'react-router-dom';
 import createSagaMiddleware from 'redux-saga';
 import 'antd/dist/antd.css';
 import rootReducer,{ rootSaga } from './store/modules/index';
+import { tempSetUser, check } from './store/modules/user'
 
 const sagaMiddleware = createSagaMiddleware();
 const store = createStore(
@@ -17,7 +18,20 @@ const store = createStore(
   composeWithDevTools(applyMiddleware(sagaMiddleware))
 );
 
+function loadUser() {
+  try {
+    const user = localStorage.getItem('user');
+    if(!user) return;
+
+    store.dispatch(tempSetUser(user));
+    store.dispatch(check());
+  } catch(e) {
+    console.llog('localStorage is empty')
+  }
+}
+
 sagaMiddleware.run(rootSaga)
+loadUser();
 
 ReactDOM.render(
   <Provider store={store}>

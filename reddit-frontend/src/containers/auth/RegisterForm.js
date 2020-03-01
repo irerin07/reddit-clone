@@ -4,14 +4,16 @@ import { changeField, initializeForm, register } from '../../store/modules/auth'
 import AuthForm from '../../components/auth/AuthForm'
 import { check } from '../../store/modules/user'
 import { withRouter } from 'react-router-dom';
+import { doneModal } from '../../store/modules/modal'
 
 const RegisterForm = ({ history }) => {
     const dispatch = useDispatch();
-    const { form, auth, authError, user } = useSelector(({ auth, user }) => ({
+    const { form, auth, authError, user } = useSelector(({ auth, user, modal }) => ({
         form: auth.register,
         auth : auth.auth,
         authError: auth.authError,
-        user: user.user
+        user: user.user,
+        register: modal.register
     }));
 
     const [error, setError] = useState(null);
@@ -60,6 +62,7 @@ const RegisterForm = ({ history }) => {
             console.log("회원가입 성공");
             console.log(auth);
             dispatch(check());
+            dispatch(doneModal('register'))
         }
     }, [auth, authError, dispatch]);
 
@@ -69,6 +72,11 @@ const RegisterForm = ({ history }) => {
             console.log('check API 성공');
             console.log(user);
             history.push('/');
+        }
+        try {
+            localStorage.setItem('user', JSON.stringify(user));
+        } catch(e) {
+            console.log('localStorage is empty')
         }
     }, [history, user]);
 

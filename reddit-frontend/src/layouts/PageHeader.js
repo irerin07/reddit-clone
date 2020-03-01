@@ -55,7 +55,7 @@ const ButtonWrapper = styled(Col)`
     text-align:right;
 `
 
-const PageHeader = ({ onKeyUp, showLoginModal, showRegisterModal }) => {
+const PageHeader = ({ onKeyUp, showLoginModal, showRegisterModal, user, onLogout }) => {
     return (
       <StyledHeader>
         <Col span={6}>
@@ -74,12 +74,15 @@ const PageHeader = ({ onKeyUp, showLoginModal, showRegisterModal }) => {
           />
         </Col>
         <ButtonWrapper span={6}>
-          <Button purple margin={1} type="button" onClick={showLoginModal}>
-            로그인
-          </Button>
-          <Button purple margin={1} type="button" onClick={showRegisterModal}>
-            회원가입
-          </Button>
+          { user ? (
+            <Button purple margin={1} type="button" onClick={onLogout}>
+              로그아웃
+            </Button>
+          ) : (
+            <Button purple margin={1} type="button" onClick={showLoginModal}>
+              로그인
+            </Button>
+          )}
         </ButtonWrapper>
       </StyledHeader>
     );

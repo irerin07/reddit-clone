@@ -7,15 +7,17 @@ import AuthTemplate from '../../components/auth/AuthTemplate'
 import Login from '../../pages/LoginPage'
 import Register from '../../pages/RegisterPage'
 import { showModal, doneModal } from '../../store/modules/modal'
+import { logout } from '../../store/modules/user'
 
 const HeaderContainer = () => {
     const dispatch = useDispatch();
     //const [ LoginModalOpen, setLoginModalOpen ] = useState(false);
     //const [ RegisterModalOpen, setRegisterModalOpen ] = useState(false);
     
-    const { login, register } = useSelector(({ modal }) => ({
+    const { login, register, user } = useSelector(({ modal, user }) => ({
           login : modal.login,
-          register : modal.register
+          register : modal.register,
+          user : user.user
     }));
 
     const modalOpen = (type) => {
@@ -32,6 +34,10 @@ const HeaderContainer = () => {
       } else {
         dispatch(doneModal('register'))
       }  
+    }
+
+    const onLogout = () => {
+      dispatch(logout())
     }
 
     const onSubmit = e => {
@@ -56,6 +62,8 @@ const HeaderContainer = () => {
           onKeyUp={onKeyupSearch}
           showLoginModal={() => modalOpen('login')}
           showRegisterModal={() => modalOpen('register')}
+          user={user}
+          onLogout={onLogout}
         />
         <Modal open={login} close={() => modalClose('login')}>
           <Login />
