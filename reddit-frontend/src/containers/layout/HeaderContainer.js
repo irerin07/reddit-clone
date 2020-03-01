@@ -37,7 +37,7 @@ const HeaderContainer = () => {
     }
 
     useEffect(() => {
-        //dispatch(initializeForm('login'))
+        dispatch(initializeForm('login'))
     }, [dispatch])
 
     return (
