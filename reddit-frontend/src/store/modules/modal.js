@@ -14,8 +14,8 @@ export const doneModal = createAction(
 );
 
 const initialState = {
-    register : false,
-    login : false
+    login: false,
+    register: false
 };
 
 const modal = handleActions(

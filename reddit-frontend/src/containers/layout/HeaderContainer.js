@@ -6,26 +6,32 @@ import Modal from '../../components/common/Modal';
 import AuthTemplate from '../../components/auth/AuthTemplate'
 import Login from '../../pages/LoginPage'
 import Register from '../../pages/RegisterPage'
+import { showModal, doneModal } from '../../store/modules/modal'
 
 const HeaderContainer = () => {
     const dispatch = useDispatch();
-    const [ LoginModalOpen, setLoginModalOpen ] = useState(false);
-    const [ RegisterModalOpen, setRegisterModalOpen ] = useState(false);
+    //const [ LoginModalOpen, setLoginModalOpen ] = useState(false);
+    //const [ RegisterModalOpen, setRegisterModalOpen ] = useState(false);
+    
+    const { login, register } = useSelector(({ modal }) => ({
+          login : modal.login,
+          register : modal.register
+    }));
 
-    const loginModalOpen = () => {
-        setLoginModalOpen(true)
+    const modalOpen = (type) => {
+      if(type === 'login'){
+        dispatch(showModal('login'))
+      } else {
+        dispatch(showModal('register'))
+      }  
     }
 
-    const loginModalClose = () => {
-        setLoginModalOpen(false)
-    }
-
-    const registerModalOpen = () => {
-        setRegisterModalOpen(true)
-    }
-
-    const registerModalClose = () => {
-        setRegisterModalOpen(false);
+    const modalClose = (type) => {
+      if(type === 'login'){
+        dispatch(doneModal('login'))
+      } else {
+        dispatch(doneModal('register'))
+      }  
     }
 
     const onSubmit = e => {
@@ -35,6 +41,10 @@ const HeaderContainer = () => {
     const onKeyupSearch = e => {
         console.log(e);
     }
+    useEffect(() => {
+      console.log("login : "+login)
+      console.log("register : "+register)
+    }, [login,register,dispatch])
 
     useEffect(() => {
         dispatch(initializeForm('login'))
@@ -44,13 +54,13 @@ const HeaderContainer = () => {
       <>
         <PageHeader
           onKeyUp={onKeyupSearch}
-          showLoginModal={loginModalOpen}
-          showRegisterModal={registerModalOpen}
+          showLoginModal={() => modalOpen('login')}
+          showRegisterModal={() => modalOpen('register')}
         />
-        <Modal open={LoginModalOpen} close={loginModalClose}>
+        <Modal open={login} close={() => modalClose('login')}>
           <Login />
         </Modal>
-        <Modal open={RegisterModalOpen} close={registerModalClose}>
+        <Modal open={register} close={() => modalClose('register')}>
           <Register />
         </Modal>
       </>
